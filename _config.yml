@@ -1,0 +1,18 @@
+title: Ministério Gladston Freire
+description: Mensagens sobre chamado, propósito e avivamento
+url: https://gladstonfreire.com.br
+
+permalink: /artigos/:title/
+
+markdown: kramdown
+
+collections:
+  posts:
+    output: true
+
+defaults:
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: artigo
