@@ -83,14 +83,35 @@ nav.top-nav .container {
    HERO HOME
 =========================== */
 header.hero-home {
+  position: relative;
   min-height: 100vh;
   background:
-    linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
+    linear-gradient(120deg, rgba(10,10,10,0.85), rgba(30,0,0,0.7)),
     url("../img/hero-bg.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   text-align: center;
 }
+
+/* Luz espiritual suave */
+header.hero-home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top center,
+    rgba(255,255,255,0.05),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* Garantir texto acima da luz */
+header.hero-home .container {
+  position: relative;
+  z-index: 1;
+}
+
 header.hero-home h1 {
   font-family: 'Oswald', sans-serif;
   font-size: 3.3rem;
