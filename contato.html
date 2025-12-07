@@ -1,53 +1,68 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Contato | Gladston Freire</title>
-
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Gladston Freire</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav class="top-nav">
-  <div class="container">
-    <div class="logo">GLADSTON <span>FREIRE</span></div>
-    <div class="menu-links">
-      <a href="index.html">Início</a>
-      <a href="sobre.html">O Autor</a>
-      <a href="index.html#livro">Livro</a>
-      <a href="contato.html" class="active">Contato</a>
-    </div>
-  </div>
-</nav>
+    <header>
+        <div class="container">
+            <nav>
+                <img src="img/logo gladston2.png" alt="Logo" class="logo">
+                <div class="menu">
+                    <a href="index.html">Início</a>
+                    <a href="index.html#videos">Pregações</a>
+                    <a href="index.html#livro">Livro</a>
+                    <a href="sobre.html">Sobre</a>
+                    <a href="contato.html" class="active">Contato</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-<header class="hero-interno">
-  <h1>Fale com o Autor</h1>
-  <p>Parcerias, convites e mensagens pessoais.</p>
-</header>
+    <section>
+        <div class="container">
+            <h2 class="section-title">Fale Conosco</h2>
+            
+            <div class="contact-layout">
+                <div class="contact-info">
+                    <h3>Convites e Agendas</h3>
+                    <p>Leve esta mensagem para sua igreja ou evento.</p>
+                    <br>
+                    <p><strong>WhatsApp:</strong> (00) 90000-0000</p>
+                    <p><strong>E-mail:</strong> agenda@gladstonfreire.com</p>
+                    <p><strong>Local:</strong> Brasil</p>
+                </div>
 
-<section>
-  <div class="container contato-grid">
-    
-    <div>
-      <h2>Informações</h2>
+                <div class="contact-form">
+                    <form action="enviar-email.php" method="POST">
+                        <div class="form-group">
+                            <label>Seu Nome</label>
+                            <input type="text" name="name" placeholder="Digite seu nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Seu E-mail</label>
+                            <input type="email" name="email" placeholder="Digite seu e-mail" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mensagem</label>
+                            <textarea name="message" rows="5" placeholder="Como podemos ajudar?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <p><i class="fab fa-whatsapp"></i> WhatsApp: <br> +55 27 99500-4900</p>
-      <p><i class="far fa-envelope"></i> E-mail: <br> gladston.freire@hotmail.com</p>
-      <p><i class="fab fa-instagram"></i> Instagram: <br> @gladstonfreire</p>
-    </div>
-
-    <div>
-      <img src="img/apresentando-livro.jpg" alt="Livro" class="contact-image">
-
-      <div class="quote-box">
-        "Contato não é apenas comunicação. É conexão espiritual."
-      </div>
-    </div>
-
-  </div>
-</section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Gladston Freire. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
-<html

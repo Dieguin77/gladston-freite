@@ -1,0 +1,252 @@
+/* --- RESET GERAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background-color: #460404; 
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+a { text-decoration: none; }
+ul { list-style: none; }
+
+/* --- CABEÇALHO --- */
+header {
+    background-color: #111;
+    padding: 5px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+}
+
+.menu a {
+    color: #ffffff;
+    margin-left: 20px;
+    transition: 0.3s;
+}
+
+.menu a:hover, .menu a.active {
+    color: #8b0808; 
+}
+
+/* --- HERO (CAPA) --- */
+.hero {
+    /* Mantenha a altura que você preferir */
+    height: 60vh; 
+
+    /* ISSO AQUI É O SEGREDO: */
+    background-image: url('img/foto-fundo.jpg');
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center; 
+    
+    /* Cor de fundo para preencher o espaço que sobrar nas laterais */
+    background-color: #000; 
+    
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+/* Película escura sobre a foto */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1; /* Texto acima da película */
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: 10px; }
+.hero p { font-size: 1.2rem; margin-bottom: 20px; }
+
+/* --- BOTÕES --- */
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    background: #840404;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover { background: #5d0101; }
+
+/* --- SEÇÕES --- */
+section { padding: 60px 0; }
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #fefdfd;
+}
+
+/* --- GRID DE VÍDEOS E FOTOS --- */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    border-radius: 25px;
+}
+
+.video-card iframe {
+    width: 100%;
+    border-radius: 8px;
+    height: 200px;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.gallery-img:hover { transform: scale(1.05); }
+
+/* --- SEÇÃO LIVRO (30%) --- */
+.book-section {
+    background: #fff;
+    border-top: 4px solid #711f06;
+}
+
+.book-layout {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.book-layout img {
+    max-width: 250px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+
+.contact-layout {
+    display: flex;
+    gap: 40px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    flex-wrap: wrap;
+}
+
+.contact-info, .contact-form { flex: 1; min-width: 300px; }
+
+.form-group { margin-bottom: 15px; }
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* --- FOOTER --- */
+footer {
+    background: #111;
+    color: #666;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+/* --- PÁGINA SOBRE --- */
+.page-header {
+    padding: 60px 0;
+    text-align: center;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.about-content {
+    background: #fff;
+}
+
+.grid-2-col {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-img img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #f8f6f6;
+}
+
+.mvv-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.mvv-box {
+    text-align: center;
+    padding: 20px;
+}
+
+.mvv-box i {
+    font-size: 2.5rem;
+    color: #8b0808;
+    margin-bottom: 15px;
+}
+
+.mvv-box h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
