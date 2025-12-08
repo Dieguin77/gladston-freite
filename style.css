@@ -8,7 +8,7 @@
 
 body {
     background-color: #460404; 
-    color: #ffffff;
+    color: #867878;
     line-height: 1.6;
 }
 
@@ -207,7 +207,7 @@ footer {
 }
 
 .about-content {
-    background: #fff;
+    background: #140000;
 }
 
 .grid-2-col {
@@ -225,7 +225,7 @@ footer {
 .about-text h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #f8f6f6;
+    color: #ffffff;
 }
 
 .mvv-grid {
@@ -242,11 +242,181 @@ footer {
 
 .mvv-box i {
     font-size: 2.5rem;
-    color: #8b0808;
+    color: #ffffff;
     margin-bottom: 15px;
 }
 
 .mvv-box h3 {
     font-size: 1.2rem;
     margin-bottom: 10px;
+}
+
+/* --- Ajustes do Rodapé --- */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #111; /* Ou a cor escura que você já usa */
+    color: #fff;
+}
+
+.dev-credits {
+    margin-top: 10px; /* Espaço entre o copyright e seu nome */
+    font-size: 0.85rem; /* Um pouco menor que o texto principal */
+    opacity: 0.7; /* Leve transparência para ficar elegante */
+}
+
+.dev-credits a {
+    color: #fff; /* Cor do link */
+    text-decoration: none; /* Tira o sublinhado padrão */
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.dev-credits a:hover {
+    color: #b71c1c; /* Muda para vermelho (cor do tema) ao passar o mouse */
+    text-decoration: underline;
+}
+
+/* --- Botões de Redes Sociais --- */
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espaço entre os ícones */
+    margin-bottom: 20px; /* Espaço para separar do texto de copyright */
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%; /* Deixa redondinho */
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo cinza bem transparente */
+    color: #fff; /* Cor do ícone */
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o mouse (Hover) */
+.social-btn:hover {
+    transform: translateY(-5px); /* O botão "pula" para cima */
+    color: #fff;
+}
+
+/* Cores específicas de cada rede */
+.social-btn.instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    box-shadow: 0 0 15px rgba(214, 36, 159, 0.5);
+}
+
+.social-btn.youtube:hover {
+    background-color: #FF0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+.social-btn.whatsapp:hover {
+    background-color: #25D366;
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
+}
+
+/* --- Estilos da Página de Contato (Layout com Foto) --- */
+
+.contact-section {
+    padding: 60px 0;
+}
+
+.contact-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start; /* Alinha tudo no topo */
+}
+
+/* O Formulário ocupa 60% da tela */
+.contact-form-container {
+    flex: 3; 
+}
+
+.contact-sidebar {
+    flex: 2;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Estilo da Foto */
+.contact-image-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 9px;
+    margin-bottom: 20px;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Caixa de Checkbox da Agenda */
+.agenda-checkbox-wrapper {
+    background-color: #fff4f4; /* Fundo levemente avermelhado */
+    border-left: 5px solid #b71c1c; /* Faixa vermelha de destaque */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.agenda-checkbox-wrapper input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.agenda-checkbox-wrapper label {
+    cursor: pointer;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.agenda-checkbox-wrapper small {
+    display: block;
+    color: #666;
+    margin-top: 3px;
+}
+
+/* Informações da Barra Lateral */
+.sidebar-info h3 {
+    color: #b71c1c;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.info-item i {
+    color: #b71c1c;
+    font-size: 1.2rem;
+    width: 25px; /* Para alinhar os ícones */
+    text-align: center;
+}
+
+/* Responsividade para Celular */
+@media (max-width: 768px) {
+    .contact-layout {
+        flex-direction: column-reverse; /* Foto em cima, formulário embaixo no celular */
+    }
+    
+    .contact-sidebar {
+        width: 100%;
+    }
 }

@@ -5,13 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato | Gladston Freire</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
     <header>
-        <div class="container">
+        <div class="container header-container">
             <nav>
                 <img src="img/logo gladston2.png" alt="Logo" class="logo">
+                
+                <button class="menu-toggle" aria-label="Abrir Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+
                 <div class="menu">
                     <a href="index.html">Início</a>
                     <a href="index.html#videos">Pregações</a>
@@ -23,46 +31,91 @@
         </div>
     </header>
 
-    <section>
+    <section class="contact-section">
         <div class="container">
             <h2 class="section-title">Fale Conosco</h2>
+            <p style="text-align: center; margin-bottom: 40px;">Envie sua mensagem ou solicite uma agenda.</p>
             
             <div class="contact-layout">
-                <div class="contact-info">
-                    <h3>Convites e Agendas</h3>
-                    <p>Leve esta mensagem para sua igreja ou evento.</p>
-                    <br>
-                    <p><strong>WhatsApp:</strong> (00) 90000-0000</p>
-                    <p><strong>E-mail:</strong> agenda@gladstonfreire.com</p>
-                    <p><strong>Local:</strong> Brasil</p>
-                </div>
-
-                <div class="contact-form">
-                    <form action="enviar-email.php" method="POST">
+                
+                <div class="contact-form-container">
+                    <form action="enviar-email.php" method="POST" class="contact-form">
                         <div class="form-group">
                             <label>Seu Nome</label>
                             <input type="text" name="name" placeholder="Digite seu nome" required>
                         </div>
+                        
                         <div class="form-group">
                             <label>Seu E-mail</label>
                             <input type="email" name="email" placeholder="Digite seu e-mail" required>
                         </div>
+
+                        <div class="agenda-checkbox-wrapper">
+                            <input type="checkbox" id="agenda" name="agenda_request" value="sim">
+                            <label for="agenda">
+                                <strong>Gostaria de solicitar uma agenda/ministração?</strong><br>
+                                <small>Marque esta opção para levar o ministério à sua cidade.</small>
+                            </label>
+                        </div>
+
                         <div class="form-group">
                             <label>Mensagem</label>
                             <textarea name="message" rows="5" placeholder="Como podemos ajudar?" required></textarea>
                         </div>
-                        <button type="submit" class="btn">Enviar Mensagem</button>
+
+                        <button type="submit" class="btn btn-submit">Enviar Mensagem</button>
                     </form>
                 </div>
+
+                <div class="contact-sidebar">
+                    <div class="contact-image-box">
+                        <img src="img/autor.jpg" alt="Pr. Gladston Freire">
+                    </div>
+
+                    <div class="sidebar-info">
+                        <h3>Convites e Agendas</h3>
+                        <div class="info-item">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <p>(+55) 27-995004900</p>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-regular fa-envelope"></i>
+                            <p>gladston.freire@hotmail.com</p>
+                        </div>
+                        <div class="info-item">
+                            <i class="fa-solid fa-earth-americas"></i>
+                            <p>Agenda Aberta (Mundial)</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Gladston Freire. Todos os direitos reservados.</p>
+            <div class="social-buttons">
+                <a href="https://instagram.com/gladstonfreire" target="_blank" class="social-btn instagram" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://youtube.com/@gladstonfreire" target="_blank" class="social-btn youtube" aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="https://wa.me/5527995004900" target="_blank" class="social-btn whatsapp" aria-label="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+
+            <p>&copy; 2025 Gladston Freire. "Enquanto você cuida das minhas coisas eu cuido das suas."</p>
+            
+            <p class="dev-credits">
+                Desenvolvido por <a href="https://diegodev.dev.br" target="_blank">Diego Batista</a>
+            </p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
