@@ -54,8 +54,8 @@ nav {
     /* Mantenha a altura que você preferir */
     height: 60vh; 
 
-    /* ISSO AQUI É O SEGREDO: */
-    background-image: url('img/foto-fundo.jpg');
+    
+    background-image: url('img/imagem-efeito-fundo.JPG');
     background-size:contain;
     background-repeat: no-repeat;
     background-position: center; 
