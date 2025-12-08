@@ -3,7 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gladston Freire | Ministério</title>
+    
+    <title>Gladston Freire | Ministro, Escritor e Advogado</title>
+    
+    <meta name="description" content="Site oficial de Gladston Freire. Acompanhe artigos exclusivos sobre Direito e Teologia, lançamentos de livros, estudos bíblicos e agenda de ministrações.">
+    
+    <meta name="keywords" content="Gladston Freire, advogado, direito, teologia, ministro do evangelho, escritor, livros cristãos, estudos bíblicos, pregações">
+    
+    <meta name="author" content="Gladston Freire">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gladstonfreire.com.br">
+    <meta property="og:title" content="Gladston Freire - Ministro, Escritor e Advogado">
+    <meta property="og:description" content="Verdade que liberta e transforma. Acesse artigos, livros e pregações.">
+    
+    <meta property="og:image" content="https://gladstonfreire.com.br/img/autor.jpg">
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -24,7 +39,6 @@
     </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
     <div class="container hero-content">
         <h1>Ministério Gladston Freire</h1>
@@ -33,7 +47,6 @@
     </div>
 </section>
 
-<!-- VÍDEOS -->
 <section id="videos">
     <div class="container">
         <h2 class="section-title">Mensagens de Renovo</h2>
@@ -54,25 +67,23 @@
     </div>
 </section>
 
-<!-- GALERIA -->
 <section>
     <div class="container">
         <h2 class="section-title">Momentos</h2>
         <div class="grid-3">
-            <img src="img/altar-levantandomao.jpg" class="gallery-img" alt="Ministração">
-            <img src="img/irmaos-levantando-mao.jpg" class="gallery-img" alt="Profecia">
-            <img src="img/entrgando-profecia.jpg" class="gallery-img" alt="Adoração">
+            <img src="img/altar-levantandomao.jpg" class="gallery-img" alt="Ministração no Altar">
+            <img src="img/irmaos-levantando-mao.jpg" class="gallery-img" alt="Igreja em Adoração">
+            <img src="img/entrgando-profecia.jpg" class="gallery-img" alt="Momento de Profecia">
         </div>
     </div>
 </section>
 
-<!-- LIVRO -->
 <section id="livro" class="book-section">
     <div class="container book-layout">
-        <img src="img/formal-terno-livro.jpg" alt="Livro">
-        <img src="img/apresentando-livro.jpg" alt="Livro">
-        <img src="img/autor.jpg" alt="Autor">
-        <img src="img/livro-rosto.jpg" alt="Livro">
+        <img src="img/formal-terno-livro.jpg" alt="Livro Gladston Freire">
+        <img src="img/apresentando-livro.jpg" alt="Apresentação do Livro">
+        <img src="img/autor.jpg" alt="Autor Gladston Freire">
+        <img src="img/livro-rosto.jpg" alt="Capa do Livro">
 
         <div>
             <h2>Não Desça Mais Nenhum Degrau</h2>
@@ -81,7 +92,7 @@
                 para quem deseja <b>fincar</b> seus passos e avançar no propósito de Deus.
             </p>
             <br>
-            <a href="https://gladston-freire.hotmart.host/nao-desca-mais-nenhum-degrau-8fca7a23-f438-4d82-85ea-15072b40687f?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnsQ3crSW0QReSW_aZReGAbTloqWD9AbblbGGdQu_npMsHzf7j-mokTb24N-4_aem_5XMh7jhLMBBeqNjYc03S8Q" class="btn">Adquirir Livro</a>
+            <a href="https://gladston-freire.hotmart.host/nao-desca-mais-nenhum-degrau-8fca7a23-f438-4d82-85ea-15072b40687f?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnsQ3crSW0QReSW_aZReGAbTloqWD9AbblbGGdQu_npMsHzf7j-mokTb24N-4_aem_5XMh7jhLMBBeqNjYc03S8Q" class="btn" target="_blank">Adquirir Livro</a>
         </div>
     </div>
 
@@ -115,7 +126,7 @@
 
 <section class="section" id="blog-section">
     <div class="container">
-        <h2 class="section-title">Artigos Recentes</h2>
+        <h2 class="section-title">Artigos e Estudos</h2>
         <div id="lista-posts" class="grid-3">
             <p>Carregando artigos...</p>
         </div>
@@ -124,8 +135,6 @@
 
 <footer>
     <div class="container">
-
-        <div class="container">
         
         <div class="social-buttons">
             <a href="https://instagram.com/gladstonfreire" target="_blank" class="social-btn instagram" aria-label="Instagram">
@@ -153,10 +162,12 @@
 
     // 2. Busca os posts (Título, Data e Imagem)
     async function carregarPosts() {
-        const query = `*[_type == "post"]{
+        // Ordenando por data de publicação (mais recente primeiro)
+        const query = `*[_type == "post"] | order(publishedAt desc) {
             title,
             publishedAt,
-            "imageUrl": mainImage.asset->url
+            "imageUrl": mainImage.asset->url,
+            "slug": slug.current
         }`;
 
         try {
@@ -166,18 +177,24 @@
             // Limpa o "Carregando..."
             lista.innerHTML = '';
 
+            if (posts.length === 0) {
+                lista.innerHTML = '<p>Nenhum artigo encontrado no momento.</p>';
+                return;
+            }
+
             // 3. Cria o HTML para cada post
             posts.forEach(post => {
-                const dataFormatada = new Date(post.publishedAt).toLocaleDateString('pt-BR');
+                const dataFormatada = post.publishedAt ? new Date(post.publishedAt).toLocaleDateString('pt-BR') : 'Data não informada';
                 
-                // Monta o Card do Post
+                // Monta o Card do Post (CORRIGIDO AQUI EMBAIXO)
                 const htmlDoPost = `
-                    <div style="background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
-                        ${post.imageUrl ? `<img src="${post.imageUrl}" style="width:100%; height: 200px; object-fit: cover; border-radius: 5px; margin-bottom: 10px;">` : ''}
-                        <h3 style="color: #333; margin-bottom: 5px;">${post.title}</h3>
-                        <small style="color: #666;">${dataFormatada}</small>
-                        <br><br>
-                        <button class="btn" style="font-size: 0.8rem;">Ler Mais</button>
+                    <div style="background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #ddd; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            ${post.imageUrl ? `<img src="${post.imageUrl}" alt="${post.title}" style="width:100%; height: 200px; object-fit: cover; border-radius: 5px; margin-bottom: 10px;">` : ''}
+                            <h3 style="color: #333; margin-bottom: 5px; font-size: 1.2rem;">${post.title}</h3>
+                            <small style="color: #666; display: block; margin-bottom: 10px;">${dataFormatada}</small>
+                        </div>
+                        <a href="post.html?slug=${post.slug}" class="btn" style="font-size: 0.9rem; align-self: flex-start; margin-top: 10px; text-decoration: none; text-align: center;">Ler Artigo</a>
                     </div>
                 `;
                 
@@ -186,6 +203,7 @@
 
         } catch (erro) {
             console.error('Erro ao buscar posts:', erro);
+            lista.innerHTML = '<p>Erro ao carregar os artigos. Verifique a conexão.</p>';
         }
     }
 
@@ -195,3 +213,6 @@
 
     </div>
 </footer>
+
+</body>
+</html>

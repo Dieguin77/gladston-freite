@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artigo | Gladston Freire</title> 
+    
+    <meta name="description" content="Leia este artigo completo no site oficial de Gladston Freire.">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS Específico para a leitura do post */
+        .post-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .post-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .post-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .post-date {
+            color: #777;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        .post-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .post-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+        .post-content p {
+            margin-bottom: 20px;
+        }
+        .post-content h2, .post-content h3 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #222;
+        }
+        .btn-voltar {
+            display: inline-block;
+            margin-top: 40px;
+            text-decoration: none;
+            color: #555;
+            font-weight: bold;
+        }
+        .btn-voltar:hover {
+            color: #000;
+        }
+    </style>
+</head>
+<body style="background-color: #f9f9f9;">
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html">
+                    <img src="img/logo gladston2.png" alt="Logo Gladston Freire" class="logo">
+                </a>
+                <div class="menu">
+                    <a href="index.html">Voltar ao Início</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="loading" style="text-align: center; padding: 50px;">Carregando artigo...</div>
+        
+        <article id="artigo-conteudo" class="post-container" style="display: none;">
+            <header class="post-header">
+                <h1 id="titulo" class="post-title"></h1>
+                <p id="data" class="post-date"></p>
+            </header>
+
+            <img id="imagem-destaque" class="post-image" src="" alt="" style="display: none;">
+
+            <div id="texto-corpo" class="post-content">
+                </div>
+
+            <a href="index.html" class="btn-voltar">← Voltar para a página inicial</a>
+        </article>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Gladston Freire. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { client } from './js/sanityClient.js';
+
+        // 1. Pega o "slug" da URL (ex: post.html?slug=meu-primeiro-post)
+        const params = new URLSearchParams(window.location.search);
+        const slug = params.get('slug');
+
+        if (!slug) {
+            document.getElementById('loading').innerText = "Artigo não encontrado.";
+        } else {
+            carregarPostUnico(slug);
+        }
+
+        // 2. Busca os dados no Sanity
+        async function carregarPostUnico(slugDoPost) {
+            // Pega Título, Imagem, Data e o CORPO (body)
+            const query = `*[_type == "post" && slug.current == "${slugDoPost}"][0]{
+                title,
+                publishedAt,
+                "imageUrl": mainImage.asset->url,
+                body
+            }`;
+
+            try {
+                const post = await client.fetch(query);
+
+                if (post) {
+                    // Preenche os dados na tela
+                    document.title = `${post.title} | Gladston Freire`; // Muda nome da aba
+                    document.getElementById('titulo').innerText = post.title;
+                    document.getElementById('data').innerText = new Date(post.publishedAt).toLocaleDateString('pt-BR');
+                    
+                    if (post.imageUrl) {
+                        const img = document.getElementById('imagem-destaque');
+                        img.src = post.imageUrl;
+                        img.style.display = 'block';
+                    }
+
+                    // Renderiza o Texto (Portable Text -> HTML)
+                    const corpoHtml = renderizarTexto(post.body);
+                    document.getElementById('texto-corpo').innerHTML = corpoHtml;
+
+                    // Mostra o artigo e esconde o loading
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('artigo-conteudo').style.display = 'block';
+                } else {
+                    document.getElementById('loading').innerText = "Ops! Artigo não encontrado.";
+                }
+            } catch (error) {
+                console.error(error);
+                document.getElementById('loading').innerText = "Erro ao carregar o artigo.";
+            }
+        }
+
+        // 3. Função Simples para transformar os blocos do Sanity em HTML
+        function renderizarTexto(blocos) {
+            if (!blocos || !Array.isArray(blocos)) return "<p>Sem conteúdo.</p>";
+
+            return blocos.map(bloco => {
+                // Se for um parágrafo normal
+                if (bloco._type === 'block' && bloco.style === 'normal') {
+                    // Junta os pedaços de texto (children)
+                    const texto = bloco.children.map(child => child.text).join('');
+                    return `<p>${texto}</p>`;
+                }
+                // Se for um título H2
+                if (bloco._type === 'block' && bloco.style === 'h2') {
+                    const texto = bloco.children.map(child => child.text).join('');
+                    return `<h2>${texto}</h2>`;
+                }
+                // Se for um título H3
+                if (bloco._type === 'block' && bloco.style === 'h3') {
+                    const texto = bloco.children.map(child => child.text).join('');
+                    return `<h3>${texto}</h3>`;
+                }
+                // Se for citação (blockquote)
+                if (bloco._type === 'block' && bloco.style === 'blockquote') {
+                    const texto = bloco.children.map(child => child.text).join('');
+                    return `<blockquote style="border-left: 4px solid #333; padding-left: 15px; font-style: italic;">${texto}</blockquote>`;
+                }
+                return "";
+            }).join('');
+        }
+    </script>
+</body>
+</html>
