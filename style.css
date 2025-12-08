@@ -420,3 +420,66 @@ footer {
         width: 100%;
     }
 }
+
+/* =========================================
+   CORREÇÃO DE RESPONSIVIDADE (MOBILE)
+   Cole isso no final do arquivo CSS
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* 1. Arrumando o Menu (Nav) */
+    nav {
+        flex-direction: column; /* Empilha logo e links */
+        gap: 15px;
+    }
+    
+    .menu a {
+        margin-left: 10px;
+        margin-right: 10px;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+
+    /* 2. Ajustando o Tamanho da Fonte da Capa (Hero) */
+    .hero h1 {
+        font-size: 2rem; /* Diminui a fonte para não estourar a tela */
+    }
+
+    /* 3. A SOLUÇÃO PRINCIPAL: Destrava o Grid de 2 Colunas */
+    /* Isso faz a imagem ficar em cima e o texto embaixo */
+    .grid-2-col {
+        grid-template-columns: 1fr; /* Muda de 2 colunas para 1 só */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    /* 4. Ajuste da Seção do Livro */
+    .book-layout {
+        flex-direction: column; /* Empilha livro e texto */
+        text-align: center;
+    }
+    
+    .book-layout img {
+        max-width: 80%; /* Garante que a capa do livro não fique gigante */
+        margin: 0 auto; /* Centraliza a imagem */
+    }
+
+    /* 5. Ajustes Gerais de Espaçamento */
+    section {
+        padding: 40px 0; /* Diminui o padding vertical */
+    }
+
+    .container {
+        width: 95%; /* Aproveita mais a largura da tela no celular */
+    }
+    
+    /* 6. Reforço para o Formulário de Contato (que você já tinha, mas unificado aqui) */
+    .contact-layout {
+        flex-direction: column-reverse; 
+    }
+    
+    .contact-sidebar, .contact-form-container {
+        width: 100%;
+        flex: none; /* Remove a proporção flex para ocupar tudo */
+    }
+}
