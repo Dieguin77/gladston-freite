@@ -113,6 +113,15 @@
     </div>
 </section>
 
+<section class="section" id="blog-section">
+    <div class="container">
+        <h2 class="section-title">Artigos Recentes</h2>
+        <div id="lista-posts" class="grid-3">
+            <p>Carregando artigos...</p>
+        </div>
+    </div>
+</section>
+
 <footer>
     <div class="container">
 
@@ -137,5 +146,52 @@
         <p class="dev-credits">
             Desenvolvido por <a href="https://diegodev.dev.br" target="_blank">Diego Batista</a>
         </p>
+
+        <script type="module">
+    // 1. Importa o cliente que configuramos
+    import { client } from './js/sanityClient.js';
+
+    // 2. Busca os posts (Título, Data e Imagem)
+    async function carregarPosts() {
+        const query = `*[_type == "post"]{
+            title,
+            publishedAt,
+            "imageUrl": mainImage.asset->url
+        }`;
+
+        try {
+            const posts = await client.fetch(query);
+            const lista = document.getElementById('lista-posts');
+            
+            // Limpa o "Carregando..."
+            lista.innerHTML = '';
+
+            // 3. Cria o HTML para cada post
+            posts.forEach(post => {
+                const dataFormatada = new Date(post.publishedAt).toLocaleDateString('pt-BR');
+                
+                // Monta o Card do Post
+                const htmlDoPost = `
+                    <div style="background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
+                        ${post.imageUrl ? `<img src="${post.imageUrl}" style="width:100%; height: 200px; object-fit: cover; border-radius: 5px; margin-bottom: 10px;">` : ''}
+                        <h3 style="color: #333; margin-bottom: 5px;">${post.title}</h3>
+                        <small style="color: #666;">${dataFormatada}</small>
+                        <br><br>
+                        <button class="btn" style="font-size: 0.8rem;">Ler Mais</button>
+                    </div>
+                `;
+                
+                lista.innerHTML += htmlDoPost;
+            });
+
+        } catch (erro) {
+            console.error('Erro ao buscar posts:', erro);
+        }
+    }
+
+    // Executa a função
+    carregarPosts();
+</script>
+
     </div>
 </footer>
