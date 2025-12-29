@@ -4,16 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre | Gladston Freire</title>
+    <meta name="description" content="Conheça a história e o propósito do ministério Gladston Freire. Bacharel em Direito e formado em Teologia, dedicado a restaurar vidas através da verdade das Escrituras.">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://gladstonfreire.com.br/sobre.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://gladstonfreire.com.br/sobre.html">
+    <meta property="og:title" content="Sobre Gladston Freire - Ministro, Escritor e Advogado">
+    <meta property="og:description" content="Conheça a história e o propósito do ministério Gladston Freire.">
+    <meta property="og:image" content="https://gladstonfreire.com.br/img/quem-e-gladston.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo gladston2.png">
+    
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <header>
         <div class="container">
             <nav>
-                <img src="img/logo gladston2.png" alt="Logo" class="logo">
+                <img src="img/logo gladston2.png" alt="Logo Gladston Freire" class="logo">
+                
+                <button class="menu-toggle" aria-label="Abrir Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                
                 <div class="menu">
                     <a href="index.html">Início</a>
                     <a href="index.html#videos">Pregações</a>
@@ -25,6 +46,8 @@
         </div>
     </header>
 
+    <div class="menu-overlay"></div>
+
     <section class="page-header" style="background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('img/foto-fundo.jpg');">
         <div class="container">
             <h1>Sobre o Ministério</h1>
@@ -34,10 +57,10 @@
 
     <section class="about-content">
         <div class="container grid-2-col">
-            <div class="about-img">
-                <img src="img/quem-e-gladston.jpg" alt="Pastor Gladston Freire">
+            <div class="about-img reveal-left">
+                <img src="img/quem-e-gladston.jpg" alt="Pastor Gladston Freire - Ministro do Evangelho, Escritor e Advogado" loading="lazy">
             </div>
-            <div class="about-text">
+            <div class="about-text reveal-right">
                 <h2>Uma vida dedicada ao Reino</h2>
                 <p>O ministério Gladston Freire nasceu com o propósito inabalável de restaurar vidas através da verdade das Escrituras. Bacharel em Direito do Trabalho e formado em Teologia, Gladston une o conhecimento bíblico profundo com uma didática clara e transformadora.</p>
                 <p>Nossa missão não é apenas informar, mas formar discípulos maduros, prontos para viverem o evangelho em sua plenitude, sem atalhos e sem degraus.</p>
@@ -57,6 +80,11 @@
             </div>
         </div>
     </section>
+
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <footer>
     <div class="container">
@@ -84,3 +112,81 @@
         </p>
     </div>
 </footer>
+
+<!-- Scripts de Funcionalidades -->
+<script>
+    // Menu Hambúrguer
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+    const menuOverlay = document.querySelector('.menu-overlay');
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            menu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        menuOverlay.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            menu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                menu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+
+    // Header Scroll Effect
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Botão Voltar ao Topo
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Scroll Reveal Animation
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    
+    const revealOnScroll = () => {
+        revealElements.forEach(el => {
+            const elementTop = el.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementTop < windowHeight - 100) {
+                el.classList.add('active');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+</script>
+
+</body>
+</html>

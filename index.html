@@ -12,15 +12,51 @@
     
     <meta name="author" content="Gladston Freire">
 
+    <!-- Canonical -->
+    <link rel="canonical" href="https://gladstonfreire.com.br/">
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gladstonfreire.com.br">
     <meta property="og:title" content="Gladston Freire - Ministro, Escritor e Advogado">
     <meta property="og:description" content="Verdade que liberta e transforma. Acesse artigos, livros e pregações.">
-    
     <meta property="og:image" content="https://gladstonfreire.com.br/img/autor.jpg">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Gladston Freire">
 
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gladston Freire - Ministro, Escritor e Advogado">
+    <meta name="twitter:description" content="Verdade que liberta e transforma. Acesse artigos, livros e pregações.">
+    <meta name="twitter:image" content="https://gladstonfreire.com.br/img/autor.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo gladston2.png">
+    <link rel="apple-touch-icon" href="img/logo gladston2.png">
+
+    <!-- Preload de recursos críticos -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="img/imagem-efeito-fundo.JPG" as="image">
+    
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Schema.org - Dados Estruturados -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Gladston Freire",
+        "url": "https://gladstonfreire.com.br",
+        "image": "https://gladstonfreire.com.br/img/autor.jpg",
+        "jobTitle": ["Ministro do Evangelho", "Escritor", "Advogado"],
+        "description": "Ministro, escritor e advogado. Autor do livro 'Não Desça Mais Nenhum Degrau'.",
+        "sameAs": [
+            "https://instagram.com/gladstonfreire",
+            "https://youtube.com/@gladstonfreire"
+        ]
+    }
+    </script>
 </head>
 <body>
 
@@ -28,6 +64,13 @@
     <div class="container">
         <nav>
             <img src="img/logo gladston2.png" alt="Logo Gladston Freire" class="logo">
+            
+            <button class="menu-toggle" aria-label="Abrir Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
             <div class="menu">
                 <a href="index.html" class="active">Início</a>
                 <a href="#videos">Pregações</a>
@@ -39,6 +82,8 @@
     </div>
 </header>
 
+<div class="menu-overlay"></div>
+
 <section class="hero">
     <div class="container hero-content">
         <h1>Ministério Gladston Freire</h1>
@@ -47,43 +92,43 @@
     </div>
 </section>
 
-<section id="videos">
+<section id="videos" class="reveal">
     <div class="container">
         <h2 class="section-title">Mensagens de Renovo</h2>
         <div class="grid-3">
             <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/uERzL5XvEKQ" title="Vídeo 1" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/uERzL5XvEKQ" title="Morada do Espírito Santo - Gladston Freire" frameborder="0" allowfullscreen loading="lazy"></iframe>
                 <h3>Morada do Espírito Santo</h3>
             </div>
             <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/69QFKoQlou8" title="Vídeo 2" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/69QFKoQlou8" title="Série Cobrador de Impostos - Gladston Freire" frameborder="0" allowfullscreen loading="lazy"></iframe>
                 <h3>Série: Cobrador de Impostos</h3>
             </div>
             <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/Uf0Sw1xXwRY" title="Vídeo 3" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/Uf0Sw1xXwRY" title="Introdução Apóstolo de Jesus - Gladston Freire" frameborder="0" allowfullscreen loading="lazy"></iframe>
                 <h3>Introdução: Apóstolo de Jesus</h3>
             </div>
         </div>
     </div>
 </section>
 
-<section>
+<section class="reveal">
     <div class="container">
         <h2 class="section-title">Momentos</h2>
         <div class="grid-3">
-            <img src="img/altar-levantandomao.jpg" class="gallery-img" alt="Ministração no Altar">
-            <img src="img/irmaos-levantando-mao.jpg" class="gallery-img" alt="Igreja em Adoração">
-            <img src="img/entrgando-profecia.jpg" class="gallery-img" alt="Momento de Profecia">
+            <img src="img/altar-levantandomao.jpg" class="gallery-img" alt="Gladston Freire ministrando no altar com mãos levantadas em adoração" loading="lazy">
+            <img src="img/irmaos-levantando-mao.jpg" class="gallery-img" alt="Congregação em momento de adoração com mãos erguidas" loading="lazy">
+            <img src="img/entrgando-profecia.jpg" class="gallery-img" alt="Gladston Freire entregando palavra profética" loading="lazy">
         </div>
     </div>
 </section>
 
-<section id="livro" class="book-section">
+<section id="livro" class="book-section reveal">
     <div class="container book-layout">
-        <img src="img/formal-terno-livro.jpg" alt="Livro Gladston Freire">
-        <img src="img/apresentando-livro.jpg" alt="Apresentação do Livro">
-        <img src="img/autor.jpg" alt="Autor Gladston Freire">
-        <img src="img/livro-rosto.jpg" alt="Capa do Livro">
+        <img src="img/formal-terno-livro.jpg" alt="Gladston Freire de terno apresentando seu livro" loading="lazy">
+        <img src="img/apresentando-livro.jpg" alt="Apresentação oficial do livro Não Desça Mais Nenhum Degrau" loading="lazy">
+        <img src="img/autor.jpg" alt="Foto oficial do autor Gladston Freire" loading="lazy">
+        <img src="img/livro-rosto.jpg" alt="Capa do livro Não Desça Mais Nenhum Degrau de Gladston Freire" loading="lazy">
 
         <div>
             <h2>Não Desça Mais Nenhum Degrau</h2>
@@ -92,7 +137,7 @@
                 para quem deseja <b>fincar</b> seus passos e avançar no propósito de Deus.
             </p>
             <br>
-            <a href="https://gladston-freire.hotmart.host/nao-desca-mais-nenhum-degrau-8fca7a23-f438-4d82-85ea-15072b40687f?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnsQ3crSW0QReSW_aZReGAbTloqWD9AbblbGGdQu_npMsHzf7j-mokTb24N-4_aem_5XMh7jhLMBBeqNjYc03S8Q" class="btn" target="_blank">Adquirir Livro</a>
+            <a href="https://gladston-freire.hotmart.host/nao-desca-mais-nenhum-degrau-8fca7a23-f438-4d82-85ea-15072b40687f?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnsQ3crSW0QReSW_aZReGAbTloqWD9AbblbGGdQu_npMsHzf7j-mokTb24N-4_aem_5XMh7jhLMBBeqNjYc03S8Q" class="btn" target="_blank" rel="noopener">Adquirir Livro</a>
         </div>
     </div>
 
@@ -101,21 +146,21 @@
 
         <div class="grid-3">
             <div class="video-card">
-                <video controls width="90%">
+                <video controls width="90%" preload="metadata" poster="img/autor.jpg">
                     <source src="video/abraão.mp4" type="video/mp4">
                 </video>
                 <h3>A Fé de Abraão</h3>
             </div>
 
             <div class="video-card">
-                <video controls width="90%">
+                <video controls width="90%" preload="metadata" poster="img/autor.jpg">
                     <source src="video/pirraça.mp4" type="video/mp4">
                 </video>
                 <h3>Deus não cede a pirraça</h3>
             </div>
 
             <div class="video-card">
-                <video controls width="90%">
+                <video controls width="90%" preload="metadata" poster="img/autor.jpg">
                     <source src="video/recebendo-profecia.mp4" type="video/mp4">
                 </video>
                 <h3>Recebendo a Profecia</h3>
@@ -124,14 +169,21 @@
     </div>
 </section>
 
-<section class="section" id="blog-section">
+<section class="section reveal" id="blog-section">
     <div class="container">
         <h2 class="section-title">Artigos e Estudos</h2>
         <div id="lista-posts" class="grid-3">
-            <p>Carregando artigos...</p>
+            <div class="skeleton skeleton-card"></div>
+            <div class="skeleton skeleton-card"></div>
+            <div class="skeleton skeleton-card"></div>
         </div>
     </div>
 </section>
+
+<!-- Botão Voltar ao Topo -->
+<button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+    <i class="fas fa-chevron-up"></i>
+</button>
 
 <footer>
     <div class="container">
@@ -174,11 +226,11 @@
             const posts = await client.fetch(query);
             const lista = document.getElementById('lista-posts');
             
-            // Limpa o "Carregando..."
+            // Limpa o skeleton
             lista.innerHTML = '';
 
             if (posts.length === 0) {
-                lista.innerHTML = '<p>Nenhum artigo encontrado no momento.</p>';
+                lista.innerHTML = '<p style="color: #fff; text-align: center;">Nenhum artigo encontrado no momento.</p>';
                 return;
             }
 
@@ -186,15 +238,15 @@
             posts.forEach(post => {
                 const dataFormatada = post.publishedAt ? new Date(post.publishedAt).toLocaleDateString('pt-BR') : 'Data não informada';
                 
-                // Monta o Card do Post (CORRIGIDO AQUI EMBAIXO)
+                // Monta o Card do Post
                 const htmlDoPost = `
-                    <div style="background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #ddd; display: flex; flex-direction: column; justify-content: space-between;">
-                        <div>
-                            ${post.imageUrl ? `<img src="${post.imageUrl}" alt="${post.title}" style="width:100%; height: 200px; object-fit: cover; border-radius: 5px; margin-bottom: 10px;">` : ''}
-                            <h3 style="color: #333; margin-bottom: 5px; font-size: 1.2rem;">${post.title}</h3>
-                            <small style="color: #666; display: block; margin-bottom: 10px;">${dataFormatada}</small>
+                    <div class="post-card">
+                        ${post.imageUrl ? `<img src="${post.imageUrl}" alt="${post.title}" loading="lazy">` : ''}
+                        <div class="post-card-content">
+                            <h3>${post.title}</h3>
+                            <small>${dataFormatada}</small>
+                            <a href="post.html?slug=${post.slug}" class="btn">Ler Artigo</a>
                         </div>
-                        <a href="post.html?slug=${post.slug}" class="btn" style="font-size: 0.9rem; align-self: flex-start; margin-top: 10px; text-decoration: none; text-align: center;">Ler Artigo</a>
                     </div>
                 `;
                 
@@ -203,12 +255,88 @@
 
         } catch (erro) {
             console.error('Erro ao buscar posts:', erro);
-            lista.innerHTML = '<p>Erro ao carregar os artigos. Verifique a conexão.</p>';
+            document.getElementById('lista-posts').innerHTML = '<p style="color: #fff; text-align: center;">Erro ao carregar os artigos. Verifique a conexão.</p>';
         }
     }
 
     // Executa a função
     carregarPosts();
+</script>
+
+<!-- Scripts de Funcionalidades -->
+<script>
+    // Menu Hambúrguer
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+    const menuOverlay = document.querySelector('.menu-overlay');
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            menu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        menuOverlay.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            menu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // Fecha menu ao clicar em um link
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                menu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+
+    // Header Scroll Effect
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Botão Voltar ao Topo
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            backToTopBtn.classList.add('visible');
+        } else {
+            backToTopBtn.classList.remove('visible');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Scroll Reveal Animation
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    
+    const revealOnScroll = () => {
+        revealElements.forEach(el => {
+            const elementTop = el.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementTop < windowHeight - 100) {
+                el.classList.add('active');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
 </script>
 
     </div>
