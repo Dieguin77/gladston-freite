@@ -213,19 +213,18 @@ nav {
 
 /* --- HERO (CAPA) --- */
 .hero {
-    /* Mantenha a altura que você preferir */
-    height: 70vh; 
+    /* Aumentei a altura para mostrar mais da imagem */
+    height: 80vh; 
+    min-height: 500px;
 
-    
     background-image: url('img/imagem-efeito-fundo.JPG');
-    background-size:contain;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: center; 
+    background-position: top center; /* Prioriza mostrar a parte superior (cabeça) */
     background-attachment: fixed; /* Efeito Parallax */
     
-    /* Cor de fundo para preencher o espaço que sobrar nas laterais */
-    background-color: #000; 
-    
+    /* Cor de fundo de fallback */
+    background-color: #460404; 
     
     display: flex;
     align-items: center;
@@ -338,13 +337,6 @@ section { padding: 80px 0; }
     text-align: center;
 }
 
-.section-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 40px;
-    color: #fefdfd;
-}
-
 /* --- GRID DE VÍDEOS E FOTOS --- */
 .grid-3 {
     display: grid;
@@ -393,6 +385,7 @@ section { padding: 80px 0; }
     width: 100%;
     height: 250px;
     object-fit: cover;
+    object-position: center;
     border-radius: 12px;
     transition: all 0.4s ease;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -778,6 +771,7 @@ footer {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    object-position: top;
     transition: transform 0.4s ease;
 }
 
@@ -937,6 +931,112 @@ footer {
     }
 }
 
+/* =========================================
+   CELULARES PEQUENOS (320px - 480px)
+   ========================================= */
+@media (max-width: 480px) {
+    .hero {
+        height: 50vh;
+        min-height: 350px;
+    }
+    
+    .hero h1 {
+        font-size: 1.5rem;
+        padding: 0 10px;
+    }
+    
+    .hero p {
+        font-size: 0.9rem;
+        padding: 0 15px;
+    }
+    
+    .btn {
+        padding: 10px 25px;
+        font-size: 0.85rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .book-layout img {
+        max-width: 90%;
+    }
+    
+    .video-card iframe,
+    .video-card video {
+        height: 180px;
+    }
+    
+    .gallery-img {
+        height: 200px;
+    }
+    
+    .post-card img {
+        height: 160px;
+    }
+    
+    .social-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+    
+    footer p {
+        font-size: 0.85rem;
+        padding: 0 10px;
+    }
+    
+    .logo {
+        max-width: 120px;
+    }
+}
+
+/* =========================================
+   CELULARES MUITO PEQUENOS (< 320px)
+   ========================================= */
+@media (max-width: 320px) {
+    .hero h1 {
+        font-size: 1.3rem;
+    }
+    
+    .hero p {
+        font-size: 0.8rem;
+    }
+    
+    .btn {
+        padding: 8px 20px;
+        font-size: 0.8rem;
+    }
+    
+    .section-title {
+        font-size: 1.3rem;
+    }
+    
+    .menu {
+        width: 85%;
+    }
+}
+
+/* =========================================
+   MOBILE LANDSCAPE (celular deitado)
+   ========================================= */
+@media (max-width: 896px) and (orientation: landscape) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 80px 0 40px;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
 /* Overlay para menu mobile */
 .menu-overlay {
     position: fixed;
@@ -954,4 +1054,147 @@ footer {
 .menu-overlay.active {
     opacity: 1;
     visibility: visible;
+}
+
+/* =========================================
+   ACESSIBILIDADE - Focus States
+   ========================================= */
+.btn:focus,
+.menu a:focus,
+.social-btn:focus,
+.back-to-top:focus,
+.menu-toggle:focus {
+    outline: 3px solid #b71c1c;
+    outline-offset: 3px;
+}
+
+/* Skip link para acessibilidade */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #b71c1c;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 5px;
+    z-index: 10000;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 10px;
+}
+
+/* =========================================
+   PREFERS REDUCED MOTION
+   ========================================= */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .reveal,
+    .reveal-left,
+    .reveal-right {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* =========================================
+   RESPONSIVIDADE TABLET (769px - 1024px)
+   ========================================= */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .book-layout img {
+        max-width: 180px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .container {
+        width: 92%;
+    }
+}
+
+/* =========================================
+   MELHORIAS DE TEXTO E LEGIBILIDADE
+   ========================================= */
+::selection {
+    background: #b71c1c;
+    color: #fff;
+}
+
+/* Melhoria de contraste para textos */
+.post-card small {
+    color: #666;
+}
+
+/* =========================================
+   SMOOTH LOADING PARA IMAGENS
+   ========================================= */
+img {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+img[loading="lazy"] {
+    opacity: 0;
+}
+
+img[loading="lazy"].loaded,
+img[loading="lazy"]:not([src=""]) {
+    opacity: 1;
+}
+
+/* =========================================
+   HOVER IMPROVEMENTS
+   ========================================= */
+.video-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* =========================================
+   PRINT STYLES
+   ========================================= */
+@media print {
+    header,
+    footer,
+    .back-to-top,
+    .btn,
+    video,
+    iframe {
+        display: none !important;
+    }
+    
+    body {
+        background: #fff;
+        color: #000;
+    }
+    
+    .hero {
+        height: auto;
+        background: none;
+        color: #000;
+    }
 }
