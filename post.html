@@ -3,71 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artigo | Gladston Freire</title> 
-    
-    <meta name="description" content="Leia este artigo completo no site oficial de Gladston Freire.">
+    <title>Artigo | Gladston Freire</title>
+
+    <meta name="description" content="Leia este artigo completo no site oficial de Gladston Freire — Ministro, Escritor e Advogado.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/logo gladston2.png">
+
+    <!-- Preconnect para fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* CSS Específico para a leitura do post */
+        body {
+            background-color: #f5f0f0;
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            background: #fff;
+            border-bottom: 1px solid #ede8e8;
+            padding: 12px 0;
+        }
+
+        .breadcrumbs nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .breadcrumbs a {
+            color: #b71c1c;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .breadcrumbs a:hover {
+            opacity: 0.75;
+        }
+
+        .breadcrumbs .separator {
+            color: #ccc;
+            font-size: 0.75rem;
+        }
+
+        .breadcrumbs .current {
+            color: #555;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 320px;
+        }
+
+        /* Post Container */
+        .post-wrapper {
+            padding: 50px 0 80px;
+        }
+
         .post-container {
             max-width: 800px;
-            margin: 40px auto;
+            margin: 0 auto;
             background: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            padding: 50px 55px;
+            border-radius: 16px;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.05);
         }
+
         .post-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #f0e8e8;
         }
+
+        .post-category {
+            display: inline-block;
+            background: linear-gradient(135deg, #840404, #b71c1c);
+            color: #fff;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
         .post-title {
-            font-size: 2.5rem;
-            color: #333;
-            margin-bottom: 10px;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 2.4rem;
+            color: #1a0000;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            font-weight: 700;
         }
+
         .post-date {
-            color: #777;
-            font-size: 0.9rem;
-            font-style: italic;
+            color: #999;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
         }
+
+        .post-date i {
+            color: #b71c1c;
+        }
+
         .post-image {
             width: 100%;
             height: auto;
             max-height: 500px;
             object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 30px;
+            border-radius: 12px;
+            margin-bottom: 35px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
+
         .post-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #444;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #3a2a2a;
         }
+
         .post-content p {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
-        .post-content h2, .post-content h3 {
-            margin-top: 30px;
-            margin-bottom: 15px;
-            color: #222;
-        }
-        .btn-voltar {
-            display: inline-block;
+
+        .post-content h2 {
+            font-family: 'Playfair Display', Georgia, serif;
             margin-top: 40px;
-            text-decoration: none;
-            color: #555;
-            font-weight: bold;
+            margin-bottom: 16px;
+            color: #1a0000;
+            font-size: 1.7rem;
         }
+
+        .post-content h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            color: #2a1010;
+            font-size: 1.35rem;
+        }
+
+        .post-content blockquote {
+            border-left: 4px solid #b71c1c;
+            margin: 28px 0;
+            padding: 16px 22px;
+            font-style: italic;
+            color: #666;
+            background: #fff8f8;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* CTA pós-artigo */
+        .post-cta {
+            margin-top: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, #0a0000 0%, #1a0000 100%);
+            border-radius: 14px;
+            text-align: center;
+            border: 1px solid rgba(183, 28, 28, 0.2);
+        }
+
+        .post-cta h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .post-cta p {
+            color: #a89898;
+            font-size: 0.95rem;
+            margin-bottom: 22px;
+            line-height: 1.6;
+        }
+
+        .post-cta-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Botão voltar */
+        .btn-voltar {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 35px;
+            color: #b71c1c;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+        }
+
         .btn-voltar:hover {
-            color: #000;
+            border-bottom-color: #b71c1c;
+            color: #840404;
+        }
+
+        /* Loading state */
+        #loading {
+            text-align: center;
+            padding: 80px 20px;
+            color: #888;
+            font-size: 1rem;
+        }
+
+        #loading i {
+            font-size: 2rem;
+            color: #b71c1c;
+            margin-bottom: 15px;
+            display: block;
+            animation: pulse 1.5s infinite;
+        }
+
+        @media (max-width: 768px) {
+            .post-container {
+                padding: 30px 22px;
+            }
+
+            .post-title {
+                font-size: 1.75rem;
+            }
+
+            .post-cta {
+                padding: 28px 20px;
+            }
+
+            .post-cta-buttons {
+                flex-direction: column;
+            }
+
+            .post-cta-buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
     </style>
 </head>
-<body style="background-color: #f9f9f9;">
+<body>
 
     <header>
         <div class="container">
@@ -76,52 +263,211 @@
                     <img src="img/logo gladston2.png" alt="Logo Gladston Freire" class="logo">
                 </a>
                 <div class="menu">
-                    <a href="index.html">Voltar ao Início</a>
+                    <a href="index.html">Início</a>
+                    <a href="index.html#videos">Pregações</a>
+                    <a href="index.html#livro">Livro</a>
+                    <a href="sobre.html">Sobre</a>
+                    <a href="contato.html">Contato</a>
                 </div>
+                <button class="menu-toggle" aria-label="Abrir Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
             </nav>
         </div>
     </header>
 
-    <div class="container">
-        <div id="loading" style="text-align: center; padding: 50px;">Carregando artigo...</div>
-        
-        <article id="artigo-conteudo" class="post-container" style="display: none;">
-            <header class="post-header">
-                <h1 id="titulo" class="post-title"></h1>
-                <p id="data" class="post-date"></p>
-            </header>
+    <div class="menu-overlay"></div>
 
-            <img id="imagem-destaque" class="post-image" src="" alt="" style="display: none;">
-
-            <div id="texto-corpo" class="post-content">
-                </div>
-
-            <a href="index.html" class="btn-voltar">← Voltar para a página inicial</a>
-        </article>
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs">
+        <div class="container">
+            <nav aria-label="Breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Início</a>
+                <span class="separator">›</span>
+                <a href="index.html#blog-section">Artigos</a>
+                <span class="separator">›</span>
+                <span class="current" id="breadcrumb-title">Carregando...</span>
+            </nav>
+        </div>
     </div>
 
-    <footer>
+    <div class="post-wrapper">
         <div class="container">
-            <p>&copy; 2025 Gladston Freire. Todos os direitos reservados.</p>
+
+            <div id="loading">
+                <i class="fas fa-circle-notch fa-spin"></i>
+                Carregando artigo...
+            </div>
+
+            <article id="artigo-conteudo" class="post-container" style="display: none;" itemscope itemtype="https://schema.org/Article">
+                <header class="post-header">
+                    <span class="post-category">Artigo</span>
+                    <h1 id="titulo" class="post-title" itemprop="headline"></h1>
+                    <p id="data" class="post-date">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span></span>
+                    </p>
+                </header>
+
+                <img id="imagem-destaque" class="post-image" src="" alt="" style="display: none;" itemprop="image" loading="lazy">
+
+                <div id="texto-corpo" class="post-content" itemprop="articleBody"></div>
+
+                <!-- CTA Final -->
+                <div class="post-cta">
+                    <h3>Gostou deste artigo?</h3>
+                    <p>Acompanhe mais conteúdos sobre fé, Direito e Teologia. Entre em contato para convidar Gladston Freire para sua igreja ou evento.</p>
+                    <div class="post-cta-buttons">
+                        <a href="contato.html" class="btn">
+                            <i class="fas fa-calendar-check"></i> Agendar Convite
+                        </a>
+                        <a href="https://wa.me/5527995004900?text=Olá%2C%20li%20um%20artigo%20no%20site%20e%20gostaria%20de%20mais%20informações."
+                           target="_blank" rel="noopener"
+                           class="btn btn-outline"
+                           style="border-color: #25D366; color: #25D366;">
+                            <i class="fa-brands fa-whatsapp"></i> Falar pelo WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <a href="index.html#blog-section" class="btn-voltar">
+                    <i class="fas fa-arrow-left"></i> Voltar para os artigos
+                </a>
+            </article>
+
+        </div>
+    </div>
+
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5527995004900?text=Olá%2C%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informações."
+       target="_blank" rel="noopener noreferrer"
+       class="whatsapp-float"
+       aria-label="Falar pelo WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+
+                    <div class="footer-brand footer-col">
+                        <img src="img/logo gladston2.png" alt="Logo Gladston Freire" class="footer-logo" loading="lazy">
+                        <p>Restaurando vidas através da verdade das Escrituras. Um ministério com propósito inabalável.</p>
+                        <div class="social-buttons">
+                            <a href="https://instagram.com/gladstonfreire" target="_blank" class="social-btn instagram" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="https://youtube.com/@gladstonfreire" target="_blank" class="social-btn youtube" aria-label="YouTube">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+                            <a href="https://wa.me/5527995004900" target="_blank" class="social-btn whatsapp" aria-label="WhatsApp">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Navegação</h4>
+                        <nav class="footer-nav-links" aria-label="Links rápidos do rodapé">
+                            <a href="index.html">Início</a>
+                            <a href="index.html#videos">Pregações</a>
+                            <a href="index.html#livro">Livro</a>
+                            <a href="sobre.html">Sobre</a>
+                            <a href="contato.html">Contato</a>
+                        </nav>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Contato</h4>
+                        <div class="footer-contact-item">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>(+55) 27 99500-4900</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fa-regular fa-envelope"></i>
+                            <span>gladston.freire@hotmail.com</span>
+                        </div>
+                        <a href="contato.html" class="btn footer-cta-btn">
+                            <i class="fas fa-calendar-check"></i> Agendar Ministração
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; 2026 Gladston Freire. Todos os direitos reservados.</p>
+                    <p class="dev-credits">
+                        Desenvolvido por <a href="https://diegodev.dev.br" target="_blank" rel="noopener">Diego Batista</a>
+                    </p>
+                </div>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Menu Hambúrguer
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        const menuOverlay = document.querySelector('.menu-overlay');
+
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                menu.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+            });
+
+            menuOverlay.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                menu.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
+
+        // Header Scroll Effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 100);
+        });
+
+        // Botão Voltar ao Topo
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopBtn.classList.toggle('visible', window.scrollY > 500);
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 
     <script type="module">
         import { client } from './js/sanityClient.js';
 
-        // 1. Pega o "slug" da URL (ex: post.html?slug=meu-primeiro-post)
         const params = new URLSearchParams(window.location.search);
         const slug = params.get('slug');
 
+        const loadingEl = document.getElementById('loading');
+
         if (!slug) {
-            document.getElementById('loading').innerText = "Artigo não encontrado.";
+            loadingEl.innerHTML = '<i class="fas fa-exclamation-circle" style="color:#b71c1c;"></i><br>Artigo não encontrado.';
         } else {
             carregarPostUnico(slug);
         }
 
-        // 2. Busca os dados no Sanity
         async function carregarPostUnico(slugDoPost) {
-            // Pega Título, Imagem, Data e o CORPO (body)
             const query = `*[_type == "post" && slug.current == "${slugDoPost}"][0]{
                 title,
                 publishedAt,
@@ -133,62 +479,67 @@
                 const post = await client.fetch(query);
 
                 if (post) {
-                    // Preenche os dados na tela
-                    document.title = `${post.title} | Gladston Freire`; // Muda nome da aba
+                    // Atualiza o título da aba e breadcrumb
+                    document.title = `${post.title} | Gladston Freire`;
+                    document.getElementById('breadcrumb-title').textContent = post.title;
+
+                    // Preenche o conteúdo
                     document.getElementById('titulo').innerText = post.title;
-                    document.getElementById('data').innerText = new Date(post.publishedAt).toLocaleDateString('pt-BR');
-                    
+
+                    const dataEl = document.querySelector('#data span');
+                    dataEl.textContent = post.publishedAt
+                        ? new Date(post.publishedAt).toLocaleDateString('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' })
+                        : 'Data não informada';
+
                     if (post.imageUrl) {
                         const img = document.getElementById('imagem-destaque');
                         img.src = post.imageUrl;
+                        img.alt = post.title;
                         img.style.display = 'block';
                     }
 
-                    // Renderiza o Texto (Portable Text -> HTML)
                     const corpoHtml = renderizarTexto(post.body);
                     document.getElementById('texto-corpo').innerHTML = corpoHtml;
 
-                    // Mostra o artigo e esconde o loading
-                    document.getElementById('loading').style.display = 'none';
+                    loadingEl.style.display = 'none';
                     document.getElementById('artigo-conteudo').style.display = 'block';
                 } else {
-                    document.getElementById('loading').innerText = "Ops! Artigo não encontrado.";
+                    loadingEl.innerHTML = '<i class="fas fa-exclamation-circle" style="color:#b71c1c;font-size:2rem;margin-bottom:15px;display:block;"></i>Ops! Artigo não encontrado.';
                 }
+
             } catch (error) {
                 console.error(error);
-                document.getElementById('loading').innerText = "Erro ao carregar o artigo.";
+                loadingEl.innerHTML = '<i class="fas fa-wifi" style="color:#b71c1c;font-size:2rem;margin-bottom:15px;display:block;"></i>Erro ao carregar o artigo. Verifique sua conexão.';
             }
         }
 
-        // 3. Função Simples para transformar os blocos do Sanity em HTML
         function renderizarTexto(blocos) {
-            if (!blocos || !Array.isArray(blocos)) return "<p>Sem conteúdo.</p>";
+            if (!blocos || !Array.isArray(blocos)) return '<p>Sem conteúdo.</p>';
 
             return blocos.map(bloco => {
-                // Se for um parágrafo normal
-                if (bloco._type === 'block' && bloco.style === 'normal') {
-                    // Junta os pedaços de texto (children)
-                    const texto = bloco.children.map(child => child.text).join('');
-                    return `<p>${texto}</p>`;
+                if (bloco._type !== 'block') return '';
+
+                const texto = bloco.children
+                    ? bloco.children.map(child => {
+                        let t = child.text || '';
+                        if (child.marks) {
+                            if (child.marks.includes('strong')) t = `<strong>${t}</strong>`;
+                            if (child.marks.includes('em')) t = `<em>${t}</em>`;
+                        }
+                        return t;
+                    }).join('')
+                    : '';
+
+                switch (bloco.style) {
+                    case 'normal':     return `<p>${texto}</p>`;
+                    case 'h2':         return `<h2>${texto}</h2>`;
+                    case 'h3':         return `<h3>${texto}</h3>`;
+                    case 'blockquote': return `<blockquote>${texto}</blockquote>`;
+                    default:           return `<p>${texto}</p>`;
                 }
-                // Se for um título H2
-                if (bloco._type === 'block' && bloco.style === 'h2') {
-                    const texto = bloco.children.map(child => child.text).join('');
-                    return `<h2>${texto}</h2>`;
-                }
-                // Se for um título H3
-                if (bloco._type === 'block' && bloco.style === 'h3') {
-                    const texto = bloco.children.map(child => child.text).join('');
-                    return `<h3>${texto}</h3>`;
-                }
-                // Se for citação (blockquote)
-                if (bloco._type === 'block' && bloco.style === 'blockquote') {
-                    const texto = bloco.children.map(child => child.text).join('');
-                    return `<blockquote style="border-left: 4px solid #333; padding-left: 15px; font-style: italic;">${texto}</blockquote>`;
-                }
-                return "";
             }).join('');
         }
     </script>
+
 </body>
 </html>

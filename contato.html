@@ -4,31 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato | Gladston Freire</title>
-    <meta name="description" content="Entre em contato com o ministério Gladston Freire. Solicite uma agenda ou ministração para sua cidade.">
-    
+    <meta name="description" content="Entre em contato com o ministério Gladston Freire. Solicite uma agenda ou ministração para sua cidade, igreja ou evento.">
+
     <!-- Canonical -->
     <link rel="canonical" href="https://gladstonfreire.com.br/contato.html">
-    
+
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gladstonfreire.com.br/contato.html">
-    <meta property="og:title" content="Contato - Gladston Freire">
+    <meta property="og:title" content="Contato — Gladston Freire">
     <meta property="og:description" content="Entre em contato com o ministério Gladston Freire. Solicite uma agenda ou ministração.">
     <meta property="og:image" content="https://gladstonfreire.com.br/img/autor.jpg">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="img/logo gladston2.png">
-    
+
+    <!-- Preconnect para fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
     <header>
-        <div class="container header-container">
+        <div class="container">
             <nav>
-                <img src="img/logo gladston2.png" alt="Logo Gladston Freire" class="logo">
-                
+                <a href="index.html">
+                    <img src="img/logo gladston2.png" alt="Logo Gladston Freire" class="logo">
+                </a>
+
                 <button class="menu-toggle" aria-label="Abrir Menu">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -48,23 +54,34 @@
 
     <div class="menu-overlay"></div>
 
+    <!-- Page Header -->
+    <section class="page-header" style="background-image: linear-gradient(rgba(0,0,0,0.82), rgba(60,0,0,0.75)), url('img/foto-fundo.jpg');">
+        <div class="container">
+            <h1>Fale Conosco</h1>
+            <p>Envie sua mensagem ou solicite uma agenda para o seu evento.</p>
+        </div>
+    </section>
+
     <section class="contact-section reveal">
         <div class="container">
-            <h2 class="section-title">Fale Conosco</h2>
-            <p style="text-align: center; margin-bottom: 40px; color: #ccc;">Envie sua mensagem ou solicite uma agenda.</p>
-            
             <div class="contact-layout">
-                
+
+                <!-- FORMULÁRIO -->
                 <div class="contact-form-container">
-                    <form action="enviar-email.php" method="POST" class="contact-form">
+                    <form id="contactForm" class="contact-form" novalidate>
                         <div class="form-group">
-                            <label>Seu Nome</label>
-                            <input type="text" name="name" placeholder="Digite seu nome" required>
+                            <label for="name">Seu Nome</label>
+                            <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required>
                         </div>
-                        
+
                         <div class="form-group">
-                            <label>Seu E-mail</label>
-                            <input type="email" name="email" placeholder="Digite seu e-mail" required>
+                            <label for="email">Seu E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="Digite seu melhor e-mail" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Seu WhatsApp <span style="color:#888;font-weight:400;">(opcional)</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="(00) 00000-0000">
                         </div>
 
                         <div class="agenda-checkbox-wrapper">
@@ -76,33 +93,55 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Mensagem</label>
-                            <textarea name="message" rows="5" placeholder="Como podemos ajudar?" required></textarea>
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" rows="6" placeholder="Como podemos ajudar? Conte um pouco sobre sua necessidade..." required></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-submit">Enviar Mensagem</button>
+                        <button type="submit" class="btn btn-submit" style="width:100%; justify-content:center;">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                        </button>
                     </form>
+
+                    <!-- Mensagem de sucesso -->
+                    <div class="form-success" id="formSuccess">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Mensagem Enviada!</h3>
+                        <p>Obrigado pelo contato. Seu cliente de e-mail foi aberto com a mensagem preparada. Em breve você receberá uma resposta.</p>
+                        <br>
+                        <a href="https://wa.me/5527995004900?text=Olá%2C%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informações." target="_blank" rel="noopener" class="btn" style="margin-top:10px;">
+                            <i class="fa-brands fa-whatsapp"></i> Falar pelo WhatsApp
+                        </a>
+                    </div>
                 </div>
 
+                <!-- SIDEBAR -->
                 <div class="contact-sidebar">
                     <div class="contact-image-box">
-                        <img src="img/autor.jpg" alt="Pastor Gladston Freire - Ministro do Evangelho" loading="lazy">
+                        <img src="img/autor.jpg" alt="Gladston Freire — Ministro do Evangelho, Escritor e Advogado" loading="lazy">
                     </div>
 
                     <div class="sidebar-info">
                         <h3>Convites e Agendas</h3>
                         <div class="info-item">
                             <i class="fa-brands fa-whatsapp"></i>
-                            <p>(+55) 27-995004900</p>
+                            <span>(+55) 27 99500-4900</span>
                         </div>
                         <div class="info-item">
                             <i class="fa-regular fa-envelope"></i>
-                            <p>gladston.freire@hotmail.com</p>
+                            <span>gladston.freire@hotmail.com</span>
                         </div>
                         <div class="info-item">
                             <i class="fa-solid fa-earth-americas"></i>
-                            <p>Agenda Aberta (Mundial)</p>
+                            <span>Agenda Aberta — Nacional e Internacional</span>
                         </div>
+
+                        <a href="https://wa.me/5527995004900?text=Olá%2C%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20uma%20agenda."
+                           target="_blank" rel="noopener"
+                           class="btn"
+                           style="width:100%; justify-content:center; margin-top:20px; font-size:0.85rem;"
+                           aria-label="Contato direto pelo WhatsApp">
+                            <i class="fa-brands fa-whatsapp"></i> Contato Direto pelo WhatsApp
+                        </a>
                     </div>
                 </div>
 
@@ -110,108 +149,187 @@
         </div>
     </section>
 
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5527995004900?text=Olá%2C%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informações."
+       target="_blank" rel="noopener noreferrer"
+       class="whatsapp-float"
+       aria-label="Falar pelo WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
     <!-- Botão Voltar ao Topo -->
     <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
         <i class="fas fa-chevron-up"></i>
     </button>
 
     <footer>
-        <div class="container">
-            <div class="social-buttons">
-                <a href="https://instagram.com/gladstonfreire" target="_blank" class="social-btn instagram" aria-label="Instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://youtube.com/@gladstonfreire" target="_blank" class="social-btn youtube" aria-label="YouTube">
-                    <i class="fa-brands fa-youtube"></i>
-                </a>
-                <a href="https://wa.me/5527995004900" target="_blank" class="social-btn whatsapp" aria-label="WhatsApp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a>
-            </div>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
 
-            <p>&copy; 2026 Gladston Freire. "Enquanto você cuida das minhas coisas eu cuido das suas."</p>
-            
-            <p class="dev-credits">
-                Desenvolvido por <a href="https://diegodev.dev.br" target="_blank">Diego Batista</a>
-            </p>
+                    <div class="footer-brand footer-col">
+                        <img src="img/logo gladston2.png" alt="Logo Gladston Freire" class="footer-logo" loading="lazy">
+                        <p>Restaurando vidas através da verdade das Escrituras. Um ministério com propósito inabalável.</p>
+                        <div class="social-buttons">
+                            <a href="https://instagram.com/gladstonfreire" target="_blank" class="social-btn instagram" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="https://youtube.com/@gladstonfreire" target="_blank" class="social-btn youtube" aria-label="YouTube">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+                            <a href="https://wa.me/5527995004900" target="_blank" class="social-btn whatsapp" aria-label="WhatsApp">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Navegação</h4>
+                        <nav class="footer-nav-links" aria-label="Links rápidos do rodapé">
+                            <a href="index.html">Início</a>
+                            <a href="index.html#videos">Pregações</a>
+                            <a href="index.html#livro">Livro</a>
+                            <a href="sobre.html">Sobre</a>
+                            <a href="contato.html">Contato</a>
+                        </nav>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Contato</h4>
+                        <div class="footer-contact-item">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>(+55) 27 99500-4900</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fa-regular fa-envelope"></i>
+                            <span>gladston.freire@hotmail.com</span>
+                        </div>
+                        <a href="contato.html" class="btn footer-cta-btn">
+                            <i class="fas fa-calendar-check"></i> Agendar Ministração
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-inner">
+                    <p>&copy; 2026 Gladston Freire. "Enquanto você cuida das minhas coisas eu cuido das suas." Todos os direitos reservados.</p>
+                    <p class="dev-credits">
+                        Desenvolvido por <a href="https://diegodev.dev.br" target="_blank" rel="noopener">Diego Batista</a>
+                    </p>
+                </div>
+            </div>
         </div>
     </footer>
 
-<!-- Scripts de Funcionalidades -->
-<script>
-    // Menu Hambúrguer
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('.menu');
-    const menuOverlay = document.querySelector('.menu-overlay');
+    <script>
+        // Menu Hambúrguer
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+        const menuOverlay = document.querySelector('.menu-overlay');
 
-    if (menuToggle) {
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            menu.classList.toggle('active');
-            menuOverlay.classList.toggle('active');
-            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
-        });
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                menu.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+                document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+            });
 
-        menuOverlay.addEventListener('click', () => {
-            menuToggle.classList.remove('active');
-            menu.classList.remove('active');
-            menuOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-
-        menu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
+            menuOverlay.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
                 menu.classList.remove('active');
                 menuOverlay.classList.remove('active');
                 document.body.style.overflow = '';
             });
-        });
-    }
 
-    // Header Scroll Effect
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-
-    // Botão Voltar ao Topo
-    const backToTopBtn = document.getElementById('backToTop');
-    
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 500) {
-            backToTopBtn.classList.add('visible');
-        } else {
-            backToTopBtn.classList.remove('visible');
-        }
-    });
-
-    backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Scroll Reveal Animation usando IntersectionObserver
-    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    
-    if ('IntersectionObserver' in window) {
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    revealObserver.unobserve(entry.target);
-                }
+            menu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    menu.classList.remove('active');
+                    menuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        
-        revealElements.forEach(el => revealObserver.observe(el));
-    } else {
-        revealElements.forEach(el => el.classList.add('active'));
-    }
-</script>
+        }
+
+        // Header Scroll Effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 100);
+        });
+
+        // Botão Voltar ao Topo
+        const backToTopBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            backToTopBtn.classList.toggle('visible', window.scrollY > 500);
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Scroll Reveal
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+        if ('IntersectionObserver' in window) {
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            revealElements.forEach(el => revealObserver.observe(el));
+        } else {
+            revealElements.forEach(el => el.classList.add('active'));
+        }
+
+        // Formulário — envio via mailto (funciona sem backend)
+        const form = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name    = form.querySelector('#name').value.trim();
+            const email   = form.querySelector('#email').value.trim();
+            const phone   = form.querySelector('#phone').value.trim();
+            const agenda  = form.querySelector('#agenda').checked ? 'Sim — desejo solicitar uma agenda/ministração.' : 'Não.';
+            const message = form.querySelector('#message').value.trim();
+
+            if (!name || !email || !message) {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
+
+            const subject = encodeURIComponent(`Contato via Site — ${name}`);
+            const body = encodeURIComponent(
+                `Nome: ${name}\n` +
+                `E-mail: ${email}\n` +
+                `WhatsApp: ${phone || 'Não informado'}\n` +
+                `Solicita Agenda: ${agenda}\n\n` +
+                `Mensagem:\n${message}`
+            );
+
+            window.location.href = `mailto:gladston.freire@hotmail.com?subject=${subject}&body=${body}`;
+
+            // Exibe mensagem de sucesso
+            form.style.display = 'none';
+            formSuccess.style.display = 'block';
+            formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        // Lazy Loading de Imagens
+        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+            if (img.complete) {
+                img.classList.add('loaded');
+            } else {
+                img.addEventListener('load', () => img.classList.add('loaded'));
+            }
+        });
+    </script>
 
 </body>
 </html>
