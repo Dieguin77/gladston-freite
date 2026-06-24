@@ -2,7 +2,7 @@
 
   <img src="img/logo gladston2.png" alt="Logo Gladston Freire" width="130" />
 
-  <h1>Gladston Freire — Site Oficial</h1>
+  <h1>Gladston Freire | Site Oficial</h1>
 
   <p>
     Site institucional e landing page de marca pessoal para<br>
