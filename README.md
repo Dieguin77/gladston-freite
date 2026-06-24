@@ -38,7 +38,7 @@
 
 | Desktop | Mobile |
 |:---:|:---:|
-| ![Desktop](docs/screenshots/desktop-home.png) | *(adicionar `docs/screenshots/mobile-home.png`)* |
+| ![Desktop](docs/screenshots/desktop-home.png) | ![Mobile](docs/screenshots/mobile-home.png) |
 
 > **Acesse ao vivo:** [gladstonfreire.com.br](https://gladstonfreire.com.br)
 
