@@ -224,68 +224,8 @@
         </div>
     </footer>
 
+    <script src="js/main.js"></script>
     <script>
-        // Menu Hambúrguer
-        const menuToggle = document.querySelector('.menu-toggle');
-        const menu = document.querySelector('.menu');
-        const menuOverlay = document.querySelector('.menu-overlay');
-
-        if (menuToggle) {
-            menuToggle.addEventListener('click', () => {
-                menuToggle.classList.toggle('active');
-                menu.classList.toggle('active');
-                menuOverlay.classList.toggle('active');
-                document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
-            });
-
-            menuOverlay.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                menu.classList.remove('active');
-                menuOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-
-            menu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    menuToggle.classList.remove('active');
-                    menu.classList.remove('active');
-                    menuOverlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            });
-        }
-
-        // Header Scroll Effect
-        const header = document.querySelector('header');
-        window.addEventListener('scroll', () => {
-            header.classList.toggle('scrolled', window.scrollY > 100);
-        });
-
-        // Botão Voltar ao Topo
-        const backToTopBtn = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            backToTopBtn.classList.toggle('visible', window.scrollY > 500);
-        });
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Scroll Reveal
-        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-        if ('IntersectionObserver' in window) {
-            const revealObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        revealObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-            revealElements.forEach(el => revealObserver.observe(el));
-        } else {
-            revealElements.forEach(el => el.classList.add('active'));
-        }
-
         // Formulário — envio via mailto (funciona sem backend)
         const form = document.getElementById('contactForm');
         const formSuccess = document.getElementById('formSuccess');
@@ -321,14 +261,6 @@
             formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
 
-        // Lazy Loading de Imagens
-        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
-            if (img.complete) {
-                img.classList.add('loaded');
-            } else {
-                img.addEventListener('load', () => img.classList.add('loaded'));
-            }
-        });
     </script>
 
 </body>

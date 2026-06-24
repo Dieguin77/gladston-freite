@@ -1,4 +1,23 @@
 {
+  "name": "gladston-freire-website",
+  "version": "1.0.0",
+  "description": "Site institucional e landing page de marca pessoal para Gladston Freire — Ministro do Evangelho, Escritor, Advogado e Palestrante.",
+  "author": "Diego Batista <diegobatistt@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://gladstonfreire.com.br",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dieguin77/gladston-freite.git"
+  },
+  "keywords": [
+    "landing-page",
+    "institutional-website",
+    "personal-brand",
+    "sanity-cms",
+    "html5",
+    "css3",
+    "javascript"
+  ],
   "dependencies": {
     "@sanity/client": "^7.13.1"
   }

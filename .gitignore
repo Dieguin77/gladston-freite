@@ -1,0 +1,42 @@
+# ── Dependências ──────────────────────────────────────────────
+node_modules/
+package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── Variáveis de ambiente ─────────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ── Editores / IDEs ───────────────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.DS_Store
+Thumbs.db
+
+# ── Build / Dist ──────────────────────────────────────────────
+dist/
+build/
+.cache/
+
+# ── Logs ──────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── OS ────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# ── Claude Code (ferramenta de desenvolvimento local) ─────────
+.claude/
